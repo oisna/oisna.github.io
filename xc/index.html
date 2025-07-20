@@ -1,1 +1,20 @@
-<iframe src="xc.md" width="100%" height="500px"></iframe>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown解析示例</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        function loadMarkdownFile() {
+            fetch('xc.md')
+                .then(response => response.text())
+                .then(markdown => {
+                    const html = marked(markdown);
+                    document.getElementById('markdown-content').innerHTML = html;
+                });
+        }
+    </script>
+</head>
+<body onload="loadMarkdownFile()">
+    <div id="markdown-content"></div>
+</body>
+</html>
